@@ -1,0 +1,42 @@
+<mat-card>
+  <form #myform="ngForm" (ngSubmit)="adduser(myform)">
+  <mat-toolbar>
+    Add User
+  </mat-toolbar>
+  <mat-form-field>
+    <input matInput placeholder="Enter name" name="uname" ngModel required>
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Enter email" name="email" ngModel required email>
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Phone number" name="number" ngModel required>
+  </mat-form-field><br>
+  <mat-form-field>
+    <input matInput placeholder="Enter Designation"  name="designation" ngModel required>
+  </mat-form-field><br>
+<pre><button mat-raised-button color="accent" type="submit">Add user</button>   <button mat-raised-button color="accent" type="reset">Reset</button></pre>
+</form>
+</mat-card><br>
+<mat-card>
+  <mat-toolbar>List of Users</mat-toolbar>
+  <table class="table">
+    <tr>
+      <th>Sr no.</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact No.</th>
+      <th>Designation</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let n of users; let i=index">
+      <td>{{i+1}}</td>
+     <td>{{n.name}}</td>
+     <td>{{n.email}}</td>
+     <td>{{n.contact}}</td>
+     <td>{{n.designation}}</td>
+     <td><mat-icon (click)="edituser(i)" >edit</mat-icon></td>
+     <td><mat-icon (click)="deleteuser(i)"> delete</mat-icon></td>
+     </tr>
+  </table>
+</mat-card>

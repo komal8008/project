@@ -1,0 +1,13 @@
+mat-card{
+  width:80%;
+  margin:auto;
+}
+mat-form-field,input{
+  width:60%;
+
+}
+
+mat-icon:hover{
+  color:purple;
+  cursor:pointer
+}

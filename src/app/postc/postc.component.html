@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-toolbar>
+    send post
+  </mat-toolbar><br>
+  <form>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter name" name="username"  [(ngModel)]="uname">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <textarea matInput rows="5" placeholder="Enter Message" name="message" [(ngModel)]="message"></textarea>
+    </mat-form-field>
+    <br><pre>
+    <button mat-raised-button color='primary' (click)= "onaddmessage()">Send Post</button>  <button mat-raised-button color="primary" type="reset"> Reset</button></pre>
+  </form>
+</mat-card>
+<br>
+

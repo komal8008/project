@@ -1,0 +1,87 @@
+<mat-card>
+  <mat-toolbar>Template form</mat-toolbar>
+  <form #myform="ngForm" (ngSubmit)="myform.valid && submit(myform.value)">
+
+    <mat-form-field>
+      <mat-select name="title" ngModel required placeholder="Select Title" 
+      #title="ngModel" [ngClass]="{'is-invalid':myform.submitted && title.invalid}">
+        <mat-option value=''></mat-option>
+        <mat-option value='Mr.'>Mr.</mat-option>
+        <mat-option value='Mrs.'>Mrs.</mat-option>
+        <mat-option value='Ms.'>Ms.</mat-option>
+      </mat-select>
+    </mat-form-field><br>
+     <mat-error *ngIf="myform.submitted && title.invalid">
+       <mat-error *ngIf="title.errors?.required">
+           Title is required
+       </mat-error>
+     </mat-error>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter name" name="uname" ngModel required #uname="ngModel"
+      [ngClass]="{'is-invalid': myform.submitted && uname.invalid }">
+    </mat-form-field><br>
+    <mat-error *ngIf="myform.submitted && uname.invalid">
+      <mat-error *ngIf="uname.errors?.required ">
+           Name is required
+      </mat-error>
+    </mat-error>
+        <mat-form-field>
+      <input matInput type="email" placeholder="Enter Email" name="email" ngModel email required
+      #email="ngModel" [ngClass]="{'is-invalid':myform.submitted && email.invalid}">
+    </mat-form-field><br>
+    <mat-error *ngIf="myform.submitted && email.invalid">
+      <mat-error *ngIf="email.errors?.required">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="email.errors?.email">
+         Email must be in proper format
+      </mat-error>
+    </mat-error>
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter Address" name="address" ngModel >
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput type={{type}} placeholder="Enter Password" name="password" ngModel #password="ngModel"
+      required [ngClass]="{'is-invalid':myform.submitted && password.invalid}"
+      minlength="6" >
+
+    </mat-form-field><mat-icon (click)="visible()"> {{vis}}</mat-icon><br>
+     <mat-error *ngIf="myform.submitted && password.invalid">
+       <mat-error *ngIf="password.errors?.required">
+          Password is required
+       </mat-error>
+       <mat-error *ngif="password.errors?.minlength">
+          Password must be greater than 6 characters
+       </mat-error>
+     </mat-error>
+    <mat-form-field>
+      <input matInput type={{type}} placeholder="Confirm Password" name="cpassword" ngModel #cpassword="ngModel"
+      required [ngClass]="{'is-invalid': myform.submitted && cpassword.invalid}" pattern={{password.value}}>
+    </mat-form-field><mat-icon (click)="visible()"> {{vis}}</mat-icon><br>
+    <mat-error *ngIf="myform.submitted && cpassword.invalid">
+      <mat-error *ngIf="cpassword.errors?.required">
+          Confirm password is required
+      </mat-error>
+      <mat-error *ngIf="cpassword.errors?.pattern">
+          Confirm password must match with password
+      </mat-error>
+    </mat-error>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Enter Designation" name="designation" ngModel >
+    </mat-form-field><br>
+
+         <mat-checkbox name="terms" ngModel #terms="ngModel" required default="false"
+          [ngClass]="{'is-invalid':myform.submitted && terms.invalid }">
+            I accept all terms and conditions.
+         </mat-checkbox>
+
+         <mat-error *ngIf="myform.submitted && terms.invalid">
+           <mat-error *ngIf="terms.errors?.required">
+              please accept Terms and conditions
+           </mat-error>
+         </mat-error>
+         <pre><button mat-raised-button type="submit"color='accent' disabled={{!terms.value}} >Submit</button>   <button mat-raised-button type="reset" color='accent'>Reset</button></pre>
+      </form>
+</mat-card>

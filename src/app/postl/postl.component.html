@@ -1,0 +1,9 @@
+<br> <mat-accordion multi *ngIf="data.length>0 else block">
+     <mat-expansion-panel *ngFor="let n of data" >
+     <mat-expansion-panel-header >
+       <p>{{n.uname}}</p>
+     </mat-expansion-panel-header>
+     <p>{{n.mess}}</p>
+    </mat-expansion-panel>
+</mat-accordion>
+<ng-template #block><h4>No Post Found</h4></ng-template>

@@ -1,0 +1,13 @@
+<mat-card>
+  <form #loginform="ngForm" (ngSubmit)="login(loginform)">
+  <mat-toolbar>Login</mat-toolbar><br>
+  <mat-form-field>
+    <input type="text" matInput placeholder="Username" name="uname" ngModel required>
+  </mat-form-field><br><br>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" name="password" ngModel required>
+  </mat-form-field><br><br>
+  <button mat-raised-button color="primary" type="submit">Login</button>
+</form>
+</mat-card><br><br>
+<button  (click)="remove()" mat-raised-button color='primary'>Log Out</button>

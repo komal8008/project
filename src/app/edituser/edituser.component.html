@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-toolbar>
+    Edit Data
+  </mat-toolbar>
+  <form #myform="ngForm" (ngSubmit)="onedit(myform)">
+    <mat-form-field>
+      <input matInput  placeholder="Enter name" name="uname" ngModel>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="Enter Email" name="email" ngModel>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="Enter contact number" name="number" ngModel>
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="Enter Designation" name="designation" ngModel>
+    </mat-form-field><br>
+    <button mat-raised-button color="accent" type="submit">Edit Profile</button>
+  </form>
+</mat-card>
